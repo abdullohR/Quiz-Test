@@ -27,7 +27,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         mistake=findViewById(R.id.mistake_result);
         truee=findViewById(R.id.true_rsult);
         mistake.setText("Incorrect answers "+falsE);
-        truee.setText("correct answers "+trues);
+        truee.setText("Correct answers "+trues);
     }
 
     public void onClick(View view) {
