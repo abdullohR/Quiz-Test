@@ -153,7 +153,7 @@ public class GameActivity extends AppCompatActivity {
                 "Arrays in Java are essentially objects.",
                 "Arrays in Java are essentially objects.",
                 "Array elements are indexed from 1 to size of array.",
-                "If a method tries to access an array element beyond its range, a compile warning is generated."
+                "If a method tries to access an array element beyond its range."
         ));
         data.add(new QuestionData(
                 "The initial value of a local variable of type String that is not explicitly initialized and which is defined in a member function of a class. Select the one correct answer. ",
