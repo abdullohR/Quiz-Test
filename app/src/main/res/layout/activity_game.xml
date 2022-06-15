@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/img"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+    <TextView
+        android:id="@+id/current_question"
+        android:layout_width="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_height="?actionBarSize"
+        android:text="1"
+        android:textColor="#00FFFFFF"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <SeekBar
+        android:id="@+id/state_view"
+        android:layout_width="0dp"
+        android:thumb="@null"
+        android:progressDrawable="@drawable/seekbar_backgraund"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="@id/current_question"
+        app:layout_constraintEnd_toEndOf="@id/total_question"
+        app:layout_constraintTop_toTopOf="@id/current_question"
+        app:layout_constraintBottom_toBottomOf="@id/total_question"/>
+
+
+    <TextView
+        android:id="@+id/total_question"
+        android:layout_width="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_height="?actionBarSize"
+        android:text="5"
+        android:textColor="#00FFFFFF"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        android:layout_width="match_parent"
+        android:id="@+id/question_group"
+        android:layout_height="0dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintDimensionRatio="2:1"
+        app:cardElevation="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/current_question"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="#1FE660"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Вопрос"
+                android:layout_margin="18dp"
+                android:textSize="14sp"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/question_view"
+                android:layout_width="0dp"
+                android:padding="25dp"
+                android:layout_margin="26dp"
+                android:textSize="14sp"
+                tools:text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+                android:textColor="#000000"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="15dp"
+        app:cardBackgroundColor="#72F3CD46"
+        android:layout_marginEnd="15dp"
+        app:cardElevation="10dp"
+        android:padding="26dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question_group"
+        android:layout_height="250dp"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/answer_card_view"
+        android:layout_width="match_parent"
+        android:layout_marginTop="46dp"
+        android:layout_marginStart="26dp"
+        app:cardBackgroundColor="#A8FFC700"
+        android:layout_marginEnd="26dp"
+        app:cardElevation="10dp"
+        android:padding="26dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/question_group"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/answer_group"
+            android:orientation="vertical"
+            android:layout_margin="26dp"
+            tools:checkedButton="@id/variant_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:textSize="16sp"
+                android:id="@+id/variant_a"
+                tools:text="Variant A"
+                android:paddingStart="16dp"
+                android:textColor="@color/white"
+                android:button="@null"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:paddingStart="16dp"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"
+                android:button="@null"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:id="@+id/variant_b"
+                tools:text="Variant B"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:paddingStart="16dp"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"
+                android:button="@null"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:id="@+id/variant_c"
+                tools:text="Variant C"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="26dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/answer_card_view"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/finish_test"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textColor="#FF0000"
+                android:text="Меню"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_height="56dp"/>
+            <TextView
+                android:id="@+id/chek_answer"
+                android:textColor="#00FF06"
+                android:layout_width="0dp"
+                android:text="Проверить"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_height="56dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
