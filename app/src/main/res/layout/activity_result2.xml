@@ -77,9 +77,10 @@
         <Button
             android:id="@+id/result_menu_button"
             android:onClick="onClick"
-            android:layout_width="85dp"
+            android:layout_width="101dp"
             android:layout_height="70dp"
             android:text="Go to Menu" />
+
     </LinearLayout>
 
 </LinearLayout>
