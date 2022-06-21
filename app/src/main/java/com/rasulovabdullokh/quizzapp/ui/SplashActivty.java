@@ -1,10 +1,12 @@
-package com.rasulovabdullokh.quizzapp;
+package com.rasulovabdullokh.quizzapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.rasulovabdullokh.quizzapp.R;
 
 public class SplashActivty extends AppCompatActivity {
     Handler handler = new Handler();

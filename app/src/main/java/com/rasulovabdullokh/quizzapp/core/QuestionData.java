@@ -1,4 +1,4 @@
-package com.rasulovabdullokh.quizzapp;
+package com.rasulovabdullokh.quizzapp.core;
 
 public class QuestionData {
     private String question;

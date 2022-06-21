@@ -1,4 +1,4 @@
-package com.rasulovabdullokh.quizzapp;
+package com.rasulovabdullokh.quizzapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.rasulovabdullokh.quizzapp.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private CardView math,geography,literature,history;

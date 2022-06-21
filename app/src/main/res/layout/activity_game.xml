@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/img"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    tools:context=".ui.GameActivity">
     <TextView
         android:id="@+id/current_question"
         android:layout_width="0dp"

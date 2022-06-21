@@ -1,10 +1,8 @@
-package com.rasulovabdullokh.quizzapp;
+package com.rasulovabdullokh.quizzapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,6 +11,10 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.rasulovabdullokh.quizzapp.R;
+import com.rasulovabdullokh.quizzapp.core.QuestionData;
+import com.rasulovabdullokh.quizzapp.core.QuestionManager;
 
 import java.util.ArrayList;
 
@@ -39,7 +41,6 @@ public class GameActivity extends AppCompatActivity {
         manager = new QuestionManager(data);
         startQuiz();
     }
-
     private void loadTheme() {
         Bundle bundle= getIntent().getExtras();
         int type=bundle.getInt(KEY_FAN);
@@ -170,9 +171,6 @@ public class GameActivity extends AppCompatActivity {
                 "protected"
         ));
     }
-
-
-
     private void loadDataMath(){
         data.add(new QuestionData(
                 "Найди значение выражения: 237 - 18 =",
@@ -390,8 +388,6 @@ public class GameActivity extends AppCompatActivity {
         variantC.setEnabled(true);
         answerGroup.clearCheck();
     }
-
-
     private void loadViews() {
         seekBar=findViewById(R.id.state_view);
         currentView= findViewById(R.id.current_question);
@@ -421,7 +417,6 @@ public class GameActivity extends AppCompatActivity {
 
         answerGroup.clearCheck();
     }
-
     private void setStateView() {
         seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override

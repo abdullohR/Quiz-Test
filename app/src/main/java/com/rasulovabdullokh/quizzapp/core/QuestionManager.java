@@ -1,4 +1,4 @@
-package com.rasulovabdullokh.quizzapp;
+package com.rasulovabdullokh.quizzapp.core;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +66,7 @@ public class QuestionManager {
 
         return isTrue;
     }
-    boolean isFinish(){
+    public boolean isFinish(){
         return currentPosition==totalQuestion;
     }
     public  boolean hasNextQuestion(){

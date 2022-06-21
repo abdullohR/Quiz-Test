@@ -1,4 +1,4 @@
-package com.rasulovabdullokh.quizzapp;
+package com.rasulovabdullokh.quizzapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.rasulovabdullokh.quizzapp.R;
 
 public class ResultActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String KEY_TRUES = "trues";
