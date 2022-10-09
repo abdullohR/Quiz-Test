@@ -9,7 +9,9 @@ import android.os.Handler;
 import com.rasulovabdullokh.quizzapp.R;
 
 public class SplashActivty extends AppCompatActivity {
+
     Handler handler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,11 +19,11 @@ public class SplashActivty extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivty.this,MainActivity.class);
+                Intent intent = new Intent(SplashActivty.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },1200);
+        }, 1200);
 
     }
 }

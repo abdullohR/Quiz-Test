@@ -1,12 +1,14 @@
 package com.rasulovabdullokh.quizzapp.core;
 
 public class QuestionData {
+
     private String question;
     private String answer;
     private String answerA;
     private String answerB;
     private String answerC;
-    public QuestionData(){
+
+    public QuestionData() {
 
     }
 

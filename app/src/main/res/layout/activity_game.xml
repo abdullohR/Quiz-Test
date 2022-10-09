@@ -186,7 +186,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:textColor="#FF0000"
-                android:text="Menu"
+                android:text="Выйти в меню"
                 android:textSize="22sp"
                 android:gravity="center"
                 android:layout_height="56dp"/>
@@ -195,7 +195,7 @@
                 android:id="@+id/chek_answer"
                 android:textColor="#00FF06"
                 android:layout_width="0dp"
-                android:text="Chek"
+                android:text="Проверить"
                 android:textSize="22sp"
                 android:gravity="center"
                 android:layout_weight="1"

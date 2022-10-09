@@ -19,15 +19,16 @@ import com.rasulovabdullokh.quizzapp.core.QuestionManager;
 import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
+
     public static final String KEY_FAN = "fan";
 
     private SeekBar seekBar;
-    private TextView totalView,finishButton,checkButton,currentView,questionView;
+    private TextView totalView, finishButton, checkButton, currentView, questionView;
     private RadioGroup answerGroup;
-    private RadioButton variantA,variantB,variantC;
+    private RadioButton variantA, variantB, variantC;
     private ArrayList<QuestionData> data = new ArrayList<>();
     private QuestionManager manager;
-    private boolean isAnswered=false;
+    private boolean isAnswered = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,32 +42,34 @@ public class GameActivity extends AppCompatActivity {
         manager = new QuestionManager(data);
         startQuiz();
     }
+
     private void loadTheme() {
-        Bundle bundle= getIntent().getExtras();
-        int type=bundle.getInt(KEY_FAN);
+        Bundle bundle = getIntent().getExtras();
+        int type = bundle.getInt(KEY_FAN);
         if (type == 2) {
             loadDataMath();
-        }else if(type==1){
+        } else if (type == 1) {
             loadDataGeography();
-        }else if(type==3){
+        } else if (type == 3) {
             loadDataLiterature();
-        }else if(type==4){
+        } else if (type == 4) {
             loadDataHistory();
-        }else if(type==5){
+        } else if (type == 5) {
             loadDataChemistry();
-        }else if(type==6){
+        } else if (type == 6) {
             loadDataBiology();
-        }else if(type==7){
+        } else if (type == 7) {
             loadDataIT();
         }
     }
-    private void loadDataChemistry(){
+
+    private void loadDataChemistry() {
         data.add(new QuestionData(
-            "Among the following which is not classified as acid:",
-            "Plant ash.",
-            "Plant ash.",
-            "Tamarind.",
-            "Citrus fruits."
+                "Among the following which is not classified as acid:",
+                "Plant ash.",
+                "Plant ash.",
+                "Tamarind.",
+                "Citrus fruits."
         ));
         data.add(new QuestionData(
                 "The dissociation and ionization are partically same as both results in giving …………… of the substance.",
@@ -97,7 +100,8 @@ public class GameActivity extends AppCompatActivity {
                 "Shows low conductivity."
         ));
     }
-    private void loadDataBiology(){
+
+    private void loadDataBiology() {
         data.add(new QuestionData(
                 "The net effect of photosynthesis, chemically, is reduction, leading to the formation of which products?",
                 "Oxygen and carbohydrates",
@@ -134,7 +138,8 @@ public class GameActivity extends AppCompatActivity {
                 "Chloroplast and central vacuole"
         ));
     }
-    private void loadDataIT(){
+
+    private void loadDataIT() {
         data.add(new QuestionData(
                 "When we go for thread synchronization?",
                 "when we want to prevent any other multiple thread to act an same object",
@@ -171,7 +176,8 @@ public class GameActivity extends AppCompatActivity {
                 "protected"
         ));
     }
-    private void loadDataMath(){
+
+    private void loadDataMath() {
         data.add(new QuestionData(
                 "Найди значение выражения: 237 - 18 =",
                 "229",
@@ -208,6 +214,7 @@ public class GameActivity extends AppCompatActivity {
                 "Периметра"
         ));
     }
+
     private void loadDataLiterature() {
         data.add(new QuestionData(
                 "Назовите автора произведений Последний поклон, Царь- рыба.",
@@ -245,6 +252,7 @@ public class GameActivity extends AppCompatActivity {
                 "Ю.Бондарев."
         ));
     }
+
     private void loadDataHistory() {
         data.add(new QuestionData(
                 "Автор теории общественного договора как основы концепции антифеодального государства и права, свободного развития личности:",
@@ -282,6 +290,7 @@ public class GameActivity extends AppCompatActivity {
                 "Брахма"
         ));
     }
+
     private void loadDataGeography() {
         data.add(new QuestionData(
                 "В этой стране расположен крупнейший по грузообороту порт, который находится за пределами Китая.",
@@ -319,67 +328,69 @@ public class GameActivity extends AppCompatActivity {
                 "Экваториальной Гвинеи"
         ));
     }
-    boolean isFinished=false;
+
+    boolean isFinished = false;
+
     private void setListener() {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(GameActivity.this,MainActivity.class);
+                Intent i = new Intent(GameActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean hasPressed=variantA.isChecked() ||variantB.isChecked() ||variantC.isChecked();
+                boolean hasPressed = variantA.isChecked() || variantB.isChecked() || variantC.isChecked();
 
-                if(isFinished){
-                    int trueCount=manager.getTotalTrues();
-                    int falseCount=manager.getTotalFalse();
-                    Bundle bundle= new Bundle();
-                    bundle.putInt(ResultActivity.KEY_TRUES,trueCount);
-                    bundle.putInt(ResultActivity.KEY_FALSE,falseCount);
-                    Intent intentT = new Intent(GameActivity.this,ResultActivity.class);
+                if (isFinished) {
+                    int trueCount = manager.getTotalTrues();
+                    int falseCount = manager.getTotalFalse();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(ResultActivity.KEY_TRUES, trueCount);
+                    bundle.putInt(ResultActivity.KEY_FALSE, falseCount);
+                    Intent intentT = new Intent(GameActivity.this, ResultActivity.class);
                     intentT.putExtras(bundle);
                     startActivity(intentT);
                     finish();
-                }
-                else{
-                    if(hasPressed){
-                        if(isAnswered){
-                            if(!manager.isFinish()){
+                } else {
+                    if (hasPressed) {
+                        if (isAnswered) {
+                            if (!manager.isFinish()) {
                                 clearView();
                                 startQuiz();
-                                checkButton.setText("Check");
+                                checkButton.setText("Проверить");
                             } else {
-                                isFinished=true;
-                                checkButton.setText("Result");
+                                isFinished = true;
+                                checkButton.setText("Результат");
                             }
-                            isAnswered=false;
-                        }else{
+                            isAnswered = false;
+                        } else {
                             RadioButton button = findViewById(answerGroup.getCheckedRadioButtonId());
                             String answer = button.getText().toString();
-                            boolean isTrue=manager.chekAnswer(answer);
+                            boolean isTrue = manager.chekAnswer(answer);
 
-                            if(isTrue){
+                            if (isTrue) {
                                 button.setBackgroundResource(R.drawable.green_background);
-                            }else{
+                            } else {
                                 button.setBackgroundResource(R.drawable.red_background);
                             }
                             variantA.setEnabled(variantA.isChecked());
                             variantB.setEnabled(variantB.isChecked());
                             variantC.setEnabled(variantC.isChecked());
                             checkButton.setText("Next");
-                            isAnswered=true;
+                            isAnswered = true;
                         }
-                    }else{
-                        Toast.makeText(GameActivity.this, "Choose one answer", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(GameActivity.this, "Выберите один из ответов", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
     }
-    private void clearView(){
+
+    private void clearView() {
         variantA.setBackgroundResource(R.drawable.radiobutton);
         variantA.setEnabled(true);
         variantB.setBackgroundResource(R.drawable.radiobutton);
@@ -388,18 +399,20 @@ public class GameActivity extends AppCompatActivity {
         variantC.setEnabled(true);
         answerGroup.clearCheck();
     }
+
     private void loadViews() {
-        seekBar=findViewById(R.id.state_view);
-        currentView= findViewById(R.id.current_question);
-        totalView=findViewById(R.id.total_question);
-        finishButton=findViewById(R.id.finish_test);
-        checkButton=findViewById(R.id.chek_answer);
-        questionView=findViewById(R.id.question_view);
-        answerGroup=findViewById(R.id.answer_group);
-        variantA=findViewById(R.id.variant_a);
-        variantB=findViewById(R.id.variant_b);
-        variantC=findViewById(R.id.variant_c);
+        seekBar = findViewById(R.id.state_view);
+        currentView = findViewById(R.id.current_question);
+        totalView = findViewById(R.id.total_question);
+        finishButton = findViewById(R.id.finish_test);
+        checkButton = findViewById(R.id.chek_answer);
+        questionView = findViewById(R.id.question_view);
+        answerGroup = findViewById(R.id.answer_group);
+        variantA = findViewById(R.id.variant_a);
+        variantB = findViewById(R.id.variant_b);
+        variantC = findViewById(R.id.variant_c);
     }
+
     private void startQuiz() {
         questionView.setText(manager.getQuestion());
         variantA.setText(manager.getVariantA());
@@ -409,7 +422,7 @@ public class GameActivity extends AppCompatActivity {
         currentView.setText(String.valueOf(manager.getCurrentLevel()));
         totalView.setText(String.valueOf(manager.getTotal()));
 
-        seekBar.setProgress(manager.getCurrentLevel()*100/manager.getTotal());
+        seekBar.setProgress(manager.getCurrentLevel() * 100 / manager.getTotal());
 
         variantA.setBackgroundResource(R.drawable.radiobutton);
         variantB.setBackgroundResource(R.drawable.radiobutton);
@@ -417,6 +430,7 @@ public class GameActivity extends AppCompatActivity {
 
         answerGroup.clearCheck();
     }
+
     private void setStateView() {
         seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
