@@ -405,7 +405,7 @@ public class GameActivity extends AppCompatActivity {
         currentView = findViewById(R.id.current_question);
         totalView = findViewById(R.id.total_question);
         finishButton = findViewById(R.id.finish_test);
-        checkButton = findViewById(R.id.chek_answer);
+        checkButton = findViewById(R.id.check_answer);
         questionView = findViewById(R.id.question_view);
         answerGroup = findViewById(R.id.answer_group);
         variantA = findViewById(R.id.variant_a);

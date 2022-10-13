@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="menu">Выйти в меню</string>
+    <string name="check">Проверить</string>
 </resources>
